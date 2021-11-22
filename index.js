@@ -28,10 +28,14 @@ const circSupplyContract = new ethers.Contract(circSupply, [HECCirculatingSupply
 let totalSupply = 0
 let circulatingSupply = 0
 
-setInterval(async () => {
+const fetchSupply = async () => {
     totalSupply = (await hecContract.totalSupply()) / Math.pow(10, 9)
     circulatingSupply = (await circSupplyContract.HECCirculatingSupply()) / Math.pow(10, 9)
-}, 1000 * 300)
+    console.log(circulatingSupply, '/', totalSupply)
+}
+
+fetchSupply()
+setInterval(fetchSupply, 1000 * 300)
 
 const app = express()
 
