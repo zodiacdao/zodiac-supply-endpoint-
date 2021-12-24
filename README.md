@@ -1,1 +1,1 @@
-# hector-supply-endpoint
+# zodiac-supply-endpoint
